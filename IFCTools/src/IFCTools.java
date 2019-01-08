@@ -16,7 +16,7 @@ public class IFCTools {
 		System.out.println("Welcome To IFC-Tools");
 		
 		while(!line.trim().equalsIgnoreCase("exit")) {
-			
+			System.out.println("command : ");
 			line = kbd.nextLine() ;
 			
 			String[] arguments = line.split(" ");

@@ -3,26 +3,40 @@ package ifc.data;
 import java.util.Vector;
 
 import ifc.io.IfcFileLoader;
+import ifc.io.IfcFileWriter;
 
 public class IfcProject {
 	
 
-	public Vector<IfcObject> ifcData = new Vector<IfcObject>();
+	
 	
 	public Vector<String> types = new Vector<String>();
 	
+	public Vector<String> nonData = new Vector<String>();
+	
+	public Vector<IfcObject> ifcData = new Vector<IfcObject>();
+	
+	
+	
 	public void loadFile(String path) {
-		try {
-			IfcFileLoader.load(path, this);
-			System.out.println("done");
-		}catch(Exception e) {
-			e.printStackTrace();
-		}
+		
+		IfcFileLoader.load(path, this);
+		System.out.println("done");
+		
 	}
+	
+	public void saveFile(String path) {
+		IfcFileWriter.write(path, this);
+		System.out.println("done");
+	}
+	
 	
 	public void displayCountData() {
 		System.out.println(ifcData.size());
 	}
+	
+	
+	
 	
 	public void displayCountTypes() {
 		System.out.println(types.size());

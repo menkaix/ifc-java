@@ -19,21 +19,29 @@ public class IfcFileLoader {
 			
 			do {
 				
-				strSource = reader.readLine();;
+				strSource = reader.readLine();
 				
-				if(strSource!= null && strSource.startsWith("#")) {
+				if(strSource!= null) {
 					
-					IfcObject ifcObj = new IfcObject(strSource);
-					
-					project.ifcData.addElement(ifcObj);
-					
-					if(!project.types.contains(ifcObj.IFCName)) {
+					if(strSource.startsWith("#")) {
 						
-						project.types.add(ifcObj.IFCName);
+						IfcObject ifcObj = new IfcObject(strSource);
+						
+						project.ifcData.addElement(ifcObj);
+						
+						if(!project.types.contains(ifcObj.IFCName)) {
+							
+							project.types.add(ifcObj.IFCName);
+							
+						}
+						
+					}else {
+						
+						project.nonData.add(strSource);
 						
 					}
-					
 				}
+				
 				
 				
 			}while (strSource != null);			
