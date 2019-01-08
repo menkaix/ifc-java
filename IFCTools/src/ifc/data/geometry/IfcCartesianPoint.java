@@ -1,6 +1,6 @@
-package ifc.geometry;
+package ifc.data.geometry;
 
-import ifc.IfcObject;
+import ifc.data.IfcObject;
 
 public class IfcCartesianPoint extends IfcObject{
 

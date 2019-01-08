@@ -1,4 +1,4 @@
-package ifc;
+package ifc.data;
 
 import java.util.StringTokenizer;
 

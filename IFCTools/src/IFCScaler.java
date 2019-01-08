@@ -8,7 +8,7 @@ import java.util.Scanner;
 import java.util.StringTokenizer;
 import java.util.Vector;
 
-import ifc.IfcObject;
+import ifc.data.IfcObject;
 
 public class IFCScaler {
 
@@ -61,8 +61,6 @@ public class IFCScaler {
 							ifcData.addElement(ifcObj);
 							writer.write(ifcObj.toString()+"\n");
 						}
-						
-						
 						
 					}else {
 						writer.write(strSource+"\n");
