@@ -16,7 +16,56 @@ public class IfcProject {
 	
 	public Vector<IfcObject> ifcData = new Vector<IfcObject>();
 	
+	public void showObject(String ID) {
+		for(IfcObject obj : ifcData) {
+			if(obj.ID == Integer.parseInt(ID.trim())) {
+				System.out.println(obj.toString());
+			}
+		}
+	}
 	
+	public void countObjectReference(String id) {
+		int count = 0 ;
+		
+		for(IfcObject obj : ifcData) {
+			int inHere = obj.IFCParam.split("#"+id+"(?![0-9])").length-1 ;			
+			
+			count += inHere ;
+			
+			if(inHere>0) {
+				System.out.println(obj.toString());
+			}
+			
+		}
+		
+		System.out.println(count);
+		
+	}
+	
+	public void scaleCartesianPoints(String factor) {
+		try {
+			float f = Float.parseFloat(factor.trim());
+			
+			System.out.println("scaling all points by : "+f);
+			
+			for(IfcObject obj : tempData) {
+				
+				if(obj.IFCName.equals(IFCCARTESIANPOINT.class.getSimpleName())) {
+					
+					IFCCARTESIANPOINT point = (IFCCARTESIANPOINT)obj.pull();
+					point.scale(f);
+					obj.push(point);
+										
+				}
+				
+			}
+		}catch(Exception e) {
+			System.out.println(e.getStackTrace()[0].getFileName()+" : "+e.getStackTrace()[0].getLineNumber()+"\n"+e.getMessage());
+		}
+		
+				
+	}
+
 	public void apply() {
 		if(tempData.size()>0) {
 			ifcData.clear();
@@ -43,31 +92,6 @@ public class IfcProject {
 		
 	}
 	
-	public void scaleCartesianPoints(String factor) {
-		try {
-			float f = Float.parseFloat(factor.trim());
-			
-			System.out.println("scaling all points by : "+f);
-			
-			for(IfcObject obj : tempData) {
-				
-				if(obj.IFCName.equalsIgnoreCase("IFCCARTESIANPOINT")) {
-					
-					IFCCARTESIANPOINT point = (IFCCARTESIANPOINT)obj.pull();
-					point.scale(f);
-					obj.push(point);
-										
-				}
-				
-			}
-		}catch(Exception e) {
-			System.out.println(e.getStackTrace()[0].getFileName()+" : "+e.getStackTrace()[0].getLineNumber()+"\n"+e.getMessage());
-		}
-		
-				
-	}
-	
-	
 	public void saveFile(String path) {
 		IfcFileWriter.write(path, this);
 		System.out.println("done");
@@ -87,7 +111,11 @@ public class IfcProject {
 	}
 	
 	
-	
+	public void displayTypesList() {
+		for(String str : types) {
+			System.out.println(str);
+		}
+	}
 	
 	
 	
