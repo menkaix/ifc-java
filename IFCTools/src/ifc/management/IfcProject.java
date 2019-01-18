@@ -1,5 +1,7 @@
 package ifc.management;
 
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
 import java.util.Vector;
 
 import ifc.data.IFCCARTESIANPOINT;
@@ -23,6 +25,48 @@ public class IfcProject {
 				System.out.println(obj.toString());
 			}
 		}
+	}
+	
+	public void findUnknown() {
+		
+		for(IfcObject obj : ifcData) {
+			
+			try {
+				
+				Class myClass = Class.forName("ifc.data."+obj.IFCName);
+				
+				Constructor constructor;
+				
+				constructor = myClass.getConstructor(int.class, String.class);
+				
+				IfcObject nature = ((IfcObject) constructor.newInstance(obj.ID, obj.IFCParam));	
+								
+			} catch (NoSuchMethodException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (SecurityException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (ClassNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (InstantiationException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IllegalAccessException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IllegalArgumentException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (InvocationTargetException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			
+		}
+		
 	}
 	
 	public void countObjectReference(String id) {
