@@ -1,5 +1,10 @@
 package ifc.data;
 
+/**
+ * batiment
+ * @author mendrika
+ *
+ */
 public class IFCBUILDING extends IfcObject {
 
 	public IFCBUILDING(int id, String param) {
