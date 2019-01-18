@@ -1,5 +1,7 @@
 package ifc.data;
 
+import ifc.management.IfcObject;
+
 /**
  * informationnelle définition d'une organosation
  * @author mendrika

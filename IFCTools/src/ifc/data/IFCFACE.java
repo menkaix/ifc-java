@@ -1,5 +1,7 @@
 package ifc.data;
 
+import ifc.management.IfcObject;
+
 /**
  * face geometrique
  * @author mendrika

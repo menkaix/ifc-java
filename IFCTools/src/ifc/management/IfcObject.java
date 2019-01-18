@@ -1,4 +1,4 @@
-package ifc.data;
+package ifc.management;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;

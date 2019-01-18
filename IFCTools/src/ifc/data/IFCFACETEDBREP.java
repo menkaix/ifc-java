@@ -1,5 +1,7 @@
 package ifc.data;
 
+import ifc.management.IfcObject;
+
 public class IFCFACETEDBREP extends IfcObject {
 
 	public IFCFACETEDBREP(String source) {

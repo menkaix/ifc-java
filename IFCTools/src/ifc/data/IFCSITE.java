@@ -1,5 +1,7 @@
 package ifc.data;
 
+import ifc.management.IfcObject;
+
 /**
  * terrain sur lequel se trouve les batiments
  * @author mendrika

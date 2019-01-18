@@ -1,5 +1,7 @@
 package ifc.data;
 
+import ifc.management.IfcObject;
+
 public class IFCPOLYLOOP extends IfcObject {
 
 	public IFCPOLYLOOP(String source) {

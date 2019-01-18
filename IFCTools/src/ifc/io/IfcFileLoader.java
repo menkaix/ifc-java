@@ -5,8 +5,8 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
-import ifc.data.IfcObject;
-import ifc.data.IfcProject;
+import ifc.management.IfcObject;
+import ifc.management.IfcProject;
 
 public class IfcFileLoader {
 	

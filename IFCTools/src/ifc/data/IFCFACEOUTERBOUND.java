@@ -1,5 +1,7 @@
 package ifc.data;
 
+import ifc.management.IfcObject;
+
 /**
  * limite ou frontière d'une face
  * 

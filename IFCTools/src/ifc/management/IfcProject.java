@@ -1,7 +1,8 @@
-package ifc.data;
+package ifc.management;
 
 import java.util.Vector;
 
+import ifc.data.IFCCARTESIANPOINT;
 import ifc.io.IfcFileLoader;
 import ifc.io.IfcFileWriter;
 

@@ -1,5 +1,7 @@
 package ifc.data;
 
+import ifc.management.IfcObject;
+
 public class IFCRELAGGREGATES extends IfcObject {
 
 	public IFCRELAGGREGATES(String source) {

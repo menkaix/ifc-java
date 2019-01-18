@@ -1,5 +1,7 @@
 package ifc.data;
 
+import ifc.management.IfcObject;
+
 public class IFCGEOMETRICREPRESENTATIONSUBCONTEXT extends IfcObject {
 
 	public IFCGEOMETRICREPRESENTATIONSUBCONTEXT(String source) {

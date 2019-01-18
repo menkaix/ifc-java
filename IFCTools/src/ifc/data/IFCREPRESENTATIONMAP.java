@@ -1,4 +1,7 @@
 package ifc.data;
+
+import ifc.management.IfcObject;
+
 /**
  *
  * @author mendrika

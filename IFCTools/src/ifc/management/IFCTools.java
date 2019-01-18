@@ -1,7 +1,8 @@
+package ifc.management;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Scanner;
 
-import ifc.data.IfcProject;
+import ifc.management.IfcProject;
 
 public class IFCTools {
 
