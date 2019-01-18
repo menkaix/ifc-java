@@ -2,7 +2,6 @@ package ifc.data;
 
 import java.util.Vector;
 
-import ifc.data.geometry.IFCCARTESIANPOINT;
 import ifc.io.IfcFileLoader;
 import ifc.io.IfcFileWriter;
 

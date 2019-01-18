@@ -1,6 +1,4 @@
-package ifc.data.infos;
-
-import ifc.data.IfcObject;
+package ifc.data;
 
 /**
  * Représente les étages d'un building

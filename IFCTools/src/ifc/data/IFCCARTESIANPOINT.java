@@ -1,8 +1,6 @@
-package ifc.data.geometry;
+package ifc.data;
 
 import java.util.StringTokenizer;
-
-import ifc.data.IfcObject;
 /**
  * Représente un point dans l'espace
  * @author mendrika

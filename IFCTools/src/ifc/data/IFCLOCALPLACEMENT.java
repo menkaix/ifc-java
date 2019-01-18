@@ -1,6 +1,4 @@
-package ifc.data.geometry;
-
-import ifc.data.IfcObject;
+package ifc.data;
 
 /**
  * Placement local des objets
