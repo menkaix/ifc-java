@@ -1,7 +1,13 @@
-package ifc.data;
+package ifc.data.geometry;
 
 import java.util.StringTokenizer;
 
+import ifc.data.IfcObject;
+/**
+ * Représente un point dans l'espace
+ * @author mendrika
+ *
+ */
 public class IFCCARTESIANPOINT extends IfcObject{
 	
 	float x ;
