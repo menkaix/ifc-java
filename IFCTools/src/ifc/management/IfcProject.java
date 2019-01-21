@@ -4,7 +4,9 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Vector;
 
+import ifc.data.IFCAXIS2PLACEMENT3D;
 import ifc.data.IFCCARTESIANPOINT;
+import ifc.data.IFCLOCALPLACEMENT;
 import ifc.io.IfcFileLoader;
 import ifc.io.IfcFileWriter;
 
@@ -86,6 +88,57 @@ public class IfcProject {
 		}
 		
 		System.out.println(count);
+		
+	}
+	
+	public void geometryStats() {
+		
+		int pointCount = 0 ;
+		int originCount = 0 ;
+		int loacalPlacementCount = 0 ;
+		double minX = Double.POSITIVE_INFINITY ;
+		double minY = Double.POSITIVE_INFINITY ;
+		double minZ = Double.POSITIVE_INFINITY ;
+		double maxX = Double.NEGATIVE_INFINITY ;
+		double maxY = Double.NEGATIVE_INFINITY ;
+		double maxZ = Double.NEGATIVE_INFINITY ;
+		
+		for(IfcObject obj : ifcData) {
+			
+			if(obj.IFCName.equals(IFCCARTESIANPOINT.class.getSimpleName())) {
+				
+				pointCount++;
+				IFCCARTESIANPOINT point = (IFCCARTESIANPOINT)obj.pull();
+				
+				minX = Math.min(minX, point.getX()) ;
+				minY = Math.min(minY, point.getY()) ;
+				minZ = Math.min(minZ, point.getZ()) ;
+				maxX = Math.max(maxX, point.getX()) ;
+				maxY = Math.max(maxY, point.getY()) ;
+				maxZ = Math.max(maxZ, point.getZ()) ;
+													
+			}//IFCAXIS2PLACEMENT3D
+			else if (obj.IFCName.equals(IFCAXIS2PLACEMENT3D.class.getSimpleName())){
+				originCount++ ;
+			}
+			else if (obj.IFCName.equals(IFCLOCALPLACEMENT.class.getSimpleName())){
+				loacalPlacementCount++ ;
+			}
+		}
+		
+		System.out.println(pointCount+" vertex found");
+		System.out.println();
+		System.out.println("minX : "+minX);
+		System.out.println("minY : "+minY);
+		System.out.println("minZ : "+minZ);
+		System.out.println("maxX : "+maxX);
+		System.out.println("maxY : "+maxY);
+		System.out.println("maxZ : "+maxZ);
+		System.out.println();
+		System.out.println("origin count : "+originCount);
+		System.out.println("local placement : "+loacalPlacementCount);
+		
+		
 		
 	}
 	

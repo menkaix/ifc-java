@@ -19,10 +19,15 @@ public class IFCTools {
 		while(!line.trim().equalsIgnoreCase("exit")) {
 			System.out.println("command : ");
 			line = kbd.nextLine() ;
+			//System.out.println("["+line+"]");
+			
+			if(line.length()<=0) {
+				continue ;
+			}
 			
 			String[] arguments = line.split(" ");
 			
-			if(arguments.length>0) {
+			if(arguments.length>0 && !line.trim().equalsIgnoreCase("exit")) {
 				try {
 					if(arguments.length==1) {
 						project.getClass().getMethod(arguments[0]).invoke(project);

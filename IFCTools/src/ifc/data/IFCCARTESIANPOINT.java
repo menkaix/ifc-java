@@ -10,15 +10,39 @@ import ifc.management.IfcObject;
  */
 public class IFCCARTESIANPOINT extends IfcObject{
 	
-	float x ;
-	float y ;
-	float z ;
-
+	private float x ;
+	private float y ;
+	private float z ;
+	
 	private void apply() {
 		IFCParam = "((" + x + ", " + y + ", " + z+"));" ;
 		
 	}
+
+	public float getX() {
+		return x;
+	}
+
+	public float getY() {
+		return y;
+	}
+
+	public float getZ() {
+		return z;
+	}
+
+	public void scale(float f) {
+		x*= f ;
+		y*= f ;
+		z*= f ;
+		apply();
+	}
 	
+	public String toString() {
+		System.out.println(IFCParam);
+		return "#"+ID+" = "+IFCName+"((" + x + ", " + y + ", " + z+"));" ;
+	}
+
 	public IFCCARTESIANPOINT(int id, String param) {
 		super(id,param);
 		
@@ -40,18 +64,6 @@ public class IFCCARTESIANPOINT extends IfcObject{
 			}
 			
 		}
-	}
-	
-	public void scale(float f) {
-		x*= f ;
-		y*= f ;
-		z*= f ;
-		apply();
-	}
-	
-	public String toString() {
-		System.out.println(IFCParam);
-		return "#"+ID+" = "+IFCName+"((" + x + ", " + y + ", " + z+"));" ;
 	}
 
 }
