@@ -21,7 +21,7 @@ public class IfcProject {
 	
 	public Vector<IfcObject> ifcData = new Vector<IfcObject>();
 	
-	public void showObject(String ID) {
+	public void show(String ID) {
 		for(IfcObject obj : ifcData) {
 			if(obj.ID == Integer.parseInt(ID.trim())) {
 				System.out.println(obj.toString());
