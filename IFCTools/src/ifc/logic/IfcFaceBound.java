@@ -1,8 +1,6 @@
 package ifc.logic;
 
-import ifc.management.IfcObject;
-
-public abstract class IfcFaceBound extends IfcObject {
+public abstract class IfcFaceBound extends IfcTopologicalRepresentationItem {
 
 
 	public IfcFaceBound(int id, String param) {

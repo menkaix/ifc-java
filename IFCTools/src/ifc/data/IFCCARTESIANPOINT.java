@@ -2,13 +2,14 @@ package ifc.data;
 
 import java.util.StringTokenizer;
 
+import ifc.logic.IfcPoint;
 import ifc.management.IfcObject;
 /**
  * Représente un point dans l'espace
  * @author mendrika
  *
  */
-public class IFCCARTESIANPOINT extends IfcObject{
+public class IFCCARTESIANPOINT extends IfcPoint{
 	
 	private double x ;
 	private double y ;
