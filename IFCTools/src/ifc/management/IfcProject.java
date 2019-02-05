@@ -29,6 +29,18 @@ public class IfcProject {
 		}
 	}
 	
+	public void findFirstOfType(String type) {
+		for(IfcObject obj : ifcData) {
+			
+			if(obj.IFCName.equalsIgnoreCase(type)) {
+				System.out.println(obj.ID);
+				
+				break ;
+			}
+			
+		}
+	}
+	
 	public void findUnknown() {
 		
 		for(IfcObject obj : ifcData) {

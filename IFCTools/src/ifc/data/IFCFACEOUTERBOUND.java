@@ -1,6 +1,8 @@
 package ifc.data;
 
-import ifc.management.IfcObject;
+import java.util.StringTokenizer;
+
+import ifc.logic.IfcFaceBound;
 
 /**
  * limite ou frontière d'une face
@@ -8,16 +10,37 @@ import ifc.management.IfcObject;
  * @author mendrika
  *
  */
-public class IFCFACEOUTERBOUND extends IfcObject {
+public class IFCFACEOUTERBOUND extends IfcFaceBound {
 
-	public IFCFACEOUTERBOUND(String source) {
-		super(source);
-		// TODO Auto-generated constructor stub
-	}
+	public int bound ;
+	public boolean orientation ;
+	
 
 	public IFCFACEOUTERBOUND(int id, String param) {
 		super(id, param);
-		// TODO Auto-generated constructor stub
+		
+		int d = param.indexOf("((");
+		int f = param.indexOf("))");
+		
+		if(d>=0) {
+			
+			String data = param.substring(d+2, f);
+			
+			StringTokenizer stk = new StringTokenizer(data, ",");
+			
+			
+			if(stk.countTokens()==2) {
+				String loopRef = stk.nextToken() ;
+				String direction = stk.nextToken() ;
+				
+				bound = Integer.parseInt(loopRef.substring(1)) ;
+				orientation = direction.trim().equals(".T.");
+				
+			}
+			
+			
+		}
+		
 	}
 
 }
