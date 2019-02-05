@@ -1,6 +1,6 @@
 package ifc.logic;
 
-public class IfcPoint extends IfcGeometricRepresentationItem {
+public abstract class IfcPoint extends IfcGeometricRepresentationItem {
 
 	public IfcPoint(String source) {
 		super(source);

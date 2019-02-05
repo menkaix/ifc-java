@@ -2,7 +2,7 @@ package ifc.logic;
 
 import ifc.management.IfcObject;
 
-public class IfcRepresentationItem extends IfcObject {
+public abstract class IfcRepresentationItem extends IfcObject {
 
 	public IfcRepresentationItem(String source) {
 		super(source);

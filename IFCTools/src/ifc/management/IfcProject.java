@@ -29,7 +29,20 @@ public class IfcProject {
 		}
 	}
 	
+	public void findFirstUseOf(String ID) {
+		for(IfcObject obj : ifcData) {
+			int inHere = obj.IFCParam.split("#"+ID+"(?![0-9])").length-1 ;	
+			if(inHere>0) {
+				System.out.println(obj.ID);
+				break ;
+			}
+			
+		}
+		
+	}
+	
 	public void findFirstOfType(String type) {
+		
 		for(IfcObject obj : ifcData) {
 			
 			if(obj.IFCName.equalsIgnoreCase(type)) {
