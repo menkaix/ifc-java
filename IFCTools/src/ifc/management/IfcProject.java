@@ -33,7 +33,7 @@ public class IfcProject {
 		for(IfcObject obj : ifcData) {
 			int inHere = obj.IFCParam.split("#"+ID+"(?![0-9])").length-1 ;	
 			if(inHere>0) {
-				System.out.println(obj.ID);
+				show(obj.ID+"");
 				break ;
 			}
 			
@@ -96,6 +96,22 @@ public class IfcProject {
 			
 		}
 		
+	}
+	
+	public void countObjectsOfType(String type) {
+		int count = 0 ;
+				
+		for(IfcObject obj : ifcData) {
+				
+			if(obj.IFCName.equalsIgnoreCase(type)) {
+				count ++ ;
+			}
+			
+			
+			
+		}
+		
+		System.out.println(count);
 	}
 	
 	public void countObjectReference(String id) {
