@@ -21,14 +21,53 @@ public class IfcProject {
 	
 	public Vector<IfcObject> ifcData = new Vector<IfcObject>();
 	
+	
 	public void show(String ID) {
+		
 		for(IfcObject obj : ifcData) {
-			if(obj.ID == Integer.parseInt(ID.trim())) {
-				System.out.println(obj.toString());
+			
+			try {
+				if(obj.ID == Integer.parseInt(ID.trim())) {
+					System.out.println(obj.toString());
+				}
+			}catch(Exception e) {
+				System.err.println(e.getClass().getSimpleName() + " "+e.getMessage());
 			}
+			
 		}
 	}
 	
+	public void showDependencies(String ID) {
+		
+		for(IfcObject obj : ifcData) {
+			if(obj.ID == Integer.parseInt(ID)) {
+				String temp = obj.IFCParam.replaceAll("[^\\.#,0123456789]","");
+				
+				String [] splits = temp.split(",");
+				
+				for(String s : splits) {
+					if(s.startsWith("#"))
+					show(s.trim().substring(1));
+				}
+				
+				
+			}
+		}
+		
+	}
+	
+	public void findUsesOf(String ID) {
+		for(IfcObject obj : ifcData) {
+			int inHere = obj.IFCParam.split("#"+ID+"(?![0-9])").length-1 ;	
+			if(inHere>0) {
+				
+				show(obj.ID+"");
+				
+			}
+			
+		}
+	}
+
 	public void findFirstUseOf(String ID) {
 		for(IfcObject obj : ifcData) {
 			int inHere = obj.IFCParam.split("#"+ID+"(?![0-9])").length-1 ;	
@@ -54,6 +93,7 @@ public class IfcProject {
 		}
 	}
 	
+	@SuppressWarnings({ "rawtypes", "unused" })
 	public void findUnknown() {
 		
 		for(IfcObject obj : ifcData) {
@@ -62,33 +102,14 @@ public class IfcProject {
 				
 				Class myClass = Class.forName("ifc.data."+obj.IFCName);
 				
-				Constructor constructor;
-				
-				constructor = myClass.getConstructor(int.class, String.class);
-				
-				IfcObject nature = ((IfcObject) constructor.newInstance(obj.ID, obj.IFCParam));	
-								
-			} catch (NoSuchMethodException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
 			} catch (SecurityException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			} catch (ClassNotFoundException e) {
 				
-				System.out.println("class not found : "+obj.IFCName);
+				System.out.println("class not found : "+obj.IFCName);				
 				
-				
-			} catch (InstantiationException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (IllegalAccessException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
 			} catch (IllegalArgumentException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (InvocationTargetException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
@@ -106,8 +127,6 @@ public class IfcProject {
 			if(obj.IFCName.equalsIgnoreCase(type)) {
 				count ++ ;
 			}
-			
-			
 			
 		}
 		
