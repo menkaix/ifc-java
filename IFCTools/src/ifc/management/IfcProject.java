@@ -1,7 +1,5 @@
 package ifc.management;
 
-import java.lang.reflect.Constructor;
-import java.lang.reflect.InvocationTargetException;
 import java.util.Vector;
 
 import ifc.data.IFCAXIS2PLACEMENT3D;
@@ -56,7 +54,7 @@ public class IfcProject {
 		
 	}
 	
-	public void findUsesOf(String ID) {
+	public void showUsesOf(String ID) {
 		for(IfcObject obj : ifcData) {
 			int inHere = obj.IFCParam.split("#"+ID+"(?![0-9])").length-1 ;	
 			if(inHere>0) {

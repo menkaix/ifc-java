@@ -2,7 +2,7 @@ package ifc.logic;
 
 import ifc.management.IfcObject;
 
-public class IfcGeometricRepresentationItem extends IfcObject {
+public abstract class IfcGeometricRepresentationItem extends IfcObject {
 
 	public IfcGeometricRepresentationItem(String source) {
 		super(source);
