@@ -3,6 +3,7 @@ package ifc.management;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.util.StringTokenizer;
+import java.util.Vector;
 
 public class IfcObject {
 	
@@ -39,9 +40,14 @@ public class IfcObject {
 		IFCName = this.getClass().getSimpleName() ;
 	}
 	
+	public String toString() {
+		
+		return "#"+ID+" = "+IFCName+IFCParam ;
+		
+	}
+
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public IfcObject pull() {
-		
-		
 		
 		try {
 			
@@ -90,12 +96,21 @@ public class IfcObject {
 		
 	}
 	
-	
-	
-	public String toString() {
+	public Vector<Integer> dependencies(){
 		
-		return "#"+ID+" = "+IFCName+IFCParam ;
+		Vector<Integer> list = new Vector<Integer>();
 		
+		String temp = IFCParam.replaceAll("[^\\.#,0123456789]","");
+		
+		String [] splits = temp.split(",");
+		
+		for(String s : splits) {
+			if(s.startsWith("#")) {
+				list.add(Integer.parseInt(s.trim().substring(1))) ;
+			}					
+		}	
+		
+		return list ;
 	}
 
 }

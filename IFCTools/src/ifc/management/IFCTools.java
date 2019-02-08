@@ -9,8 +9,6 @@ public class IFCTools {
 	
 	public static void executeLine(Object context, String line) {
 
-		
-		
 		if(line.length()<=0) {
 			return ;
 		}
@@ -24,7 +22,6 @@ public class IFCTools {
 				}else {
 					context.getClass().getMethod(arguments[0], line.getClass()).invoke(context, line.substring(line.indexOf(" ")+1));
 				}
-				
 				
 			} catch (IllegalAccessException e) {
 				System.err.println("IllegalAccessException : "+e.getMessage());

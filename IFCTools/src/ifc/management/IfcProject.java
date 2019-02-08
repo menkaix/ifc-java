@@ -84,24 +84,20 @@ public class IfcProject {
 	}
 
 	public void showDependencies(String ID) {
-		
+		System.out.println("dependencies of #"+ID);
 		for(IfcObject obj : ifcData) {
 			if(obj.ID == Integer.parseInt(ID)) {
-				String temp = obj.IFCParam.replaceAll("[^\\.#,0123456789]","");
-				
-				String [] splits = temp.split(",");
-				
-				for(String s : splits) {
-					if(s.startsWith("#"))
-					show(s.trim().substring(1));
+				for(int i : obj.dependencies()) {
+					show(""+i) ;
 				}
-				
-				
 			}
 		}
-		
 	}
 	
+	public void showDependencyTree(String ID) {
+		
+	}
+
 	public void showUsesOf(String ID) {
 		for(IfcObject obj : ifcData) {
 			int inHere = obj.IFCParam.split("#"+ID+"(?![0-9])").length-1 ;	
