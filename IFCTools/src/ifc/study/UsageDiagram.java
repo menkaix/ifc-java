@@ -1,4 +1,4 @@
-package ifc.management;
+package ifc.study;
 
 public class UsageDiagram {
 
