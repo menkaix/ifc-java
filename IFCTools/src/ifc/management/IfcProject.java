@@ -1,5 +1,8 @@
 package ifc.management;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Vector;
 
 import ifc.data.IFCAXIS2PLACEMENT3D;
@@ -16,6 +19,38 @@ public class IfcProject {
 	
 	public Vector<IfcObject> ifcData = new Vector<IfcObject>();
 	
+	
+	private void createClass(String ifcName) {
+		
+		try {
+			
+			BufferedWriter writer = new BufferedWriter(new FileWriter("src/ifc/data/"+ifcName+".java",false));
+			
+			writer.write("package ifc.data;");writer.write("\n");
+			writer.write("import ifc.management.IfcObject;");writer.write("\n");
+			
+			writer.write("public class "+ifcName+" extends IfcObject {");writer.write("\n");
+
+			writer.write("	public "+ifcName+"(String source) {");writer.write("\n");
+			writer.write("super(source);");writer.write("\n");
+			writer.write("// TODO Auto-generated constructor stub");writer.write("\n");
+			writer.write("}");writer.write("\n");
+
+			writer.write("public "+ifcName+"(int id, String param) {");writer.write("\n");
+			writer.write("super(id, param);");writer.write("\n");
+			writer.write("// TODO Auto-generated constructor stub");writer.write("\n");
+			writer.write("}");writer.write("\n");
+			writer.write("}");writer.write("\n");
+
+			writer.close();
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+	}
 	
 	public void show(String ID) {
 		
@@ -159,7 +194,10 @@ public class IfcProject {
 				e.printStackTrace();
 			} catch (ClassNotFoundException e) {
 				
-				System.out.println("class not found : "+obj.IFCName);				
+				System.out.println("class not found : "+obj.IFCName);	
+				
+				createClass(obj.IFCName);
+				
 				
 			} catch (IllegalArgumentException e) {
 				// TODO Auto-generated catch block
