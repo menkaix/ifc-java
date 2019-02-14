@@ -4,7 +4,17 @@ import java.util.StringTokenizer;
 import java.util.Vector;
 
 import ifc.management.IfcObject;
+import ifc.study.annotation.StudyMastered;
 
+/**
+ *
+ * @author mendrika
+ * 
+ * http://www.buildingsmart-tech.org/ifc/IFC2x3/TC1/html/ifctopologyresource/lexical/ifcpolyloop.htm
+ *
+ */
+
+@StudyMastered
 public class IFCPOLYLOOP extends IFCLOOP {
 
 	public Vector<Integer> pointIDs ;

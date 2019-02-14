@@ -2,15 +2,13 @@ package ifc.data;
 
 import java.util.StringTokenizer;
 
-import ifc.logic.IfcFaceBound;
-
 /**
  * limite ou frontière d'une face
  * 
  * @author mendrika
  *
  */
-public class IFCFACEOUTERBOUND extends IfcFaceBound {
+public class IFCFACEOUTERBOUND extends IFCFACEBOUND {
 
 	public int bound ;
 	public boolean orientation ;

@@ -3,12 +3,16 @@ package ifc.data;
 import java.util.StringTokenizer;
 
 import ifc.logic.IfcPoint;
-import ifc.management.IfcObject;
+import ifc.study.annotation.StudyMastered;
 /**
  * Représente un point dans l'espace
  * @author mendrika
+ * 
+ * http://www.buildingsmart-tech.org/ifc/IFC2x3/TC1/html/ifcgeometryresource/lexical/ifccartesianpoint.htm
  *
  */
+
+@StudyMastered
 public class IFCCARTESIANPOINT extends IfcPoint{
 	
 	private double x ;
