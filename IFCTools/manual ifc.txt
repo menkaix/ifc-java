@@ -26,3 +26,16 @@ ENDSEC;
 
 DATA;
 
+#1 = IFCSITE('1PxuPQF456L9aKWhAbv8nk', $, 'Covadis :', $, '', #2, $, $, .ELEMENT., $, $, 0., $, $);
+
+#2 = IFCLOCALPLACEMENT($, #3);
+#3 = IFCAXIS2PLACEMENT3D(#4, #5, #6);/* un point et 2 directions */
+#4 = IFCCARTESIANPOINT((619339.054889048, 6827514.5907099, 0.));
+#5 = IFCDIRECTION((0., 0., 1.));
+#6 = IFCDIRECTION((1., 0., 0.));
+
+/* ifc building element proxy za zao */
+
+ENDSEC;
+
+END-ISO-10303-21;
