@@ -119,7 +119,9 @@ public class IfcProject {
 	}
 
 	public void showDependencies(String ID) {
-		System.out.println("dependencies of #"+ID);
+		System.out.println("dependencies of ");
+		show(""+ID);
+		System.out.println("--------------------");
 		for(IfcObject obj : ifcData) {
 			if(obj.ID == Integer.parseInt(ID)) {
 				for(int i : obj.dependencies()) {

@@ -1,0 +1,28 @@
+ISO-10303-21;
+HEADER;
+
+/******************************************************************************************
+* STEP Physical File produced by: The EXPRESS Data Manager Version 5.02.0100.07 : 28 Aug 2013
+* Module:                         EDMstepFileFactory/EDMstandAlone
+* Creation date:                  Tue Sep 27 16:12:22 2016
+* Host:                           AirGeo-PC
+* Database:                       C:\Users\AIRGEO~1\AppData\Local\Temp\{1BC6100B-DC78-49E2-9525-408D6C32B9B9}\ifc
+* Database version:               5507
+* Database creation date:         Tue Sep 27 16:12:16 2016
+* Schema:                         IFC2X3
+* Model:                          DataRepository.ifc
+* Model creation date:            Tue Sep 27 16:12:16 2016
+* Header model:                   DataRepository.ifc_HeaderModel
+* Header model creation date:     Tue Sep 27 16:12:16 2016
+* EDMuser:                        sdai-user
+* EDMgroup:                       sdai-group
+* License ID and type:            5605 : Permanent license. Expiry date: 
+* EDMstepFileFactory options:     020000
+******************************************************************************************/
+FILE_DESCRIPTION(('ViewDefinition [CoordinationView_V2.0]'),'2;1');
+FILE_NAME('Num\X2\00E9\X0\ro du projet','2016-09-27T16:12:22',(''),(''),'The EXPRESS Data Manager Version 5.02.0100.07 : 28 Aug 2013','20150220_1215(x64) - Exporter 16.5.0.0 - Interface alternative d''export 16.5.0.0','');
+FILE_SCHEMA(('IFC2X3'));
+ENDSEC;
+
+DATA;
+
