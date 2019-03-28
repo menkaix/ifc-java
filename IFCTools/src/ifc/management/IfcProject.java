@@ -247,6 +247,26 @@ public class IfcProject {
 		
 	}
 	
+	public void correctIfcSiteElement() {
+		int count = 0 ;
+		
+		for(IfcObject obj : ifcData) {
+			
+			if(obj.IFCName.equalsIgnoreCase("ifcsite")) {
+				
+				System.out.println(obj.IFCParam);
+				
+				for(String s : obj.paramArgs) {
+					System.out.println("->"+s);
+				}
+			}
+			
+		}
+		
+		System.out.println(count);
+		
+	}
+	
 	public void loadFile(String path) {
 		
 		IfcFileLoader.load(path, this);

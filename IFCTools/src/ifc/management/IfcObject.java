@@ -13,10 +13,29 @@ public class IfcObject {
 	public String IFCName ;
 	public String IFCParam ;
 	
+	public Vector<String> paramArgs = new Vector<String>() ;
+	
+	private void updateParamArgs() {
+		paramArgs.clear();
+		
+		StringTokenizer stk = new StringTokenizer(IFCParam, "(,);") ;
+		
+		while(stk.hasMoreTokens()) {
+			paramArgs.add(stk.nextToken());
+		}
+		
+	}
+	
+	public void applyParamChanges() {
+		
+	}
+	
 	public IfcObject(String source) {
 		
 		StringTokenizer stk = new StringTokenizer(source, "=");
 		String token = stk.nextToken();
+		
+		
 		
 		if(token.startsWith("#")) {
 						
@@ -31,6 +50,8 @@ public class IfcObject {
 		
 		IFCName = source.substring(b+1, e).trim();
 		IFCParam = source.substring(e).trim();
+		
+		updateParamArgs();
 				
 	}
 	
@@ -38,6 +59,8 @@ public class IfcObject {
 		ID = id ;
 		IFCParam = param ;
 		IFCName = this.getClass().getSimpleName() ;
+		
+		updateParamArgs() ;
 	}
 	
 	public String toString() {
